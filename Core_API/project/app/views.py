@@ -36,25 +36,16 @@ def all_data(req):
             if not 'City' in p_data:
                 p_data={"msg":"City missing"}
                 return HttpResponse(json.dumps(p_data),content_type='application/json')
-        return HttpResponse(json.dumps(p_data),content_type='application/json')
-        
+            return HttpResponse(json.dumps(p_data),content_type='application/json')
+       
 
-
- 
-
-
-
-            
-
-
-
-    # data=Student.objects.all()
-    # print(data)
-    # p_data=list(data.values())
-    # print(p_data)
-    # j_data=json.dumps(p_data)
-    # print(j_data)
-    # return HttpResponse(j_data,content_type='application/json')
+    data=Student.objects.all()
+    print(data)
+    p_data=list(data.values())
+    print(p_data)
+    j_data=json.dumps(p_data)
+    print(j_data)
+    return HttpResponse(j_data,content_type='application/json')
 
 def single_data(req,pk):
     data=Student.objects.get(id=pk)
